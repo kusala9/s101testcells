@@ -11,7 +11,7 @@ SRC_FILES := $(wildcard $(SRC)/*.yaml)
 OBJ_FILES := $(patsubst $(SRC)/%.yaml,$(OBJ)/%.000,$(SRC_FILES))
 
 cells: $(OBJ_FILES) $(SRC_FILES)
-	cp $^ $@
+	cp $(OBJ_FILES) $@
 
 $(OBJ)/%.000: $(SRC)/%.yaml
 	$(CC) $(CCFLAGS) -d $(OBJ) -f $<
