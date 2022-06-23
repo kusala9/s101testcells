@@ -129,6 +129,13 @@ Features:
     Foid: 1810:2022:02
     Prim: Point
     Attributes:
+      - Name: featureName
+        id: 1
+      - Name: language
+        Value: eng
+        parent: 1
+      - Name: name
+        Value: Caesars Palace
       - Name: categoryOfHulk
         Value: Casino
     Geometry: P6
