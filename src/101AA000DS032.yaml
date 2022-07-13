@@ -1,0 +1,45 @@
+CellName: 101AA000DS032.000
+Comment: Autogen v5
+Edition: 1
+
+Points:
+  - Name: P1
+    Location: 62.50000002,-32.13333329
+
+Curves:
+  - Name: curve1
+    Start: P1
+    Vertices: 62.50000002,-32.13333329,62.66666669,-32.13333329,62.66666669,-31.96666662,62.50000002,-31.96666662,62.50000002,-32.13333329
+
+Surfaces:
+  - Name: S2
+    Exterior: curve1
+
+Features:
+  - Name: DataCoverage
+    Foid: 1810:608:68
+    Prim: Surface
+    Attributes:
+      - Name: maximumDisplayScale
+        Value: 22000
+      - Name: minimumDisplayScale
+        Value: 75000
+    Geometry: S2
+
+  - Name: NavigationalSystemOfMarks
+    Foid: 1810:4081:100
+    Prim: Surface
+    Attributes:
+      - Name: marksNavigationalSystemOf
+        Value: IALA A
+    Geometry: S2
+
+  - Name: DepthArea
+    Foid: 1810:1411:99
+    Prim: Surface
+    Attributes:
+      - Name: depthRangeMaximumValue
+        Value: 20
+      - Name: depthRangeMinimumValue
+        Value: 100
+    Geometry: S2 

@@ -156,3 +156,31 @@ Features:
     Geometry: P6
 
 ## Need a QualOfBath feature....
+  - Name: QualityOfBathymetricData
+    Foid: 1810:1411:100
+    Prim: Surface
+    Attributes:
+      - Name: categoryOfTemporalVariation
+        Value: Unassessed
+      - Name: dataAssessment
+        Value: Unassessed
+      - Name: featuresDetected
+        id: 1
+      - Name: significantFeaturesDetected
+        parent: 1
+        Value: false
+      - Name: leastDepthOfDetectedFeaturesMeasured
+        parent: 1
+        Value: false
+      - Name: surveyDateRange
+        id: 2
+      - Name: dateEnd
+        parent: 2
+        Value: 2021-01-01
+      - Name: zoneOfConfidence
+        id: 3
+      - Name: categoryOfZoneOfConfidenceInData
+        Value: Zone of Confidence U
+      - Name: fullSeafloorCoverageAchieved
+        Value: false
+    Geometry: S2 
