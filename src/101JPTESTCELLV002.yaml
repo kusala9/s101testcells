@@ -1,6 +1,6 @@
 CellName: 101USTESTOR001.000
-Comment: Author JP | Tester Shyam v7
-Edition: 6
+Comment: Author JP | Tester Shyam
+Edition: 7
 
 # you can add global offset parameters too. (if you want to)
 xoffset: 1.5
@@ -151,6 +151,7 @@ Features:
         parent: 1
       - Name: name
         Value: Caesars Palace
+        parent: 1
       - Name: categoryOfHulk
         Value: Casino
     Geometry: P6
@@ -175,12 +176,13 @@ Features:
       - Name: surveyDateRange
         id: 2
       - Name: dateEnd
+        Value: 20210101
         parent: 2
-        Value: 2021-01-01
       - Name: zoneOfConfidence
         id: 3
       - Name: categoryOfZoneOfConfidenceInData
         Value: Zone of Confidence U
+        parent: 3
       - Name: fullSeafloorCoverageAchieved
         Value: false
     Geometry: S2 
