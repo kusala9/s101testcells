@@ -1,0 +1,97 @@
+CellName: 101AA00QUAL02.000
+Comment: test cell for quality portrayal 2
+Edition: 1
+
+Points:
+  - Name: P1
+    Location: 61.66666667,-32.46666663
+  - Name: P2
+    Location: 61.67186 , -32.35825
+
+Curves:
+  - Name: curve1
+    Start: P1
+    Vertices:  61.66666667 , -32.46666663 , 61.66666667 , -32.29999996 , 61.83333334 , -32.29999996 , 61.83333334 , -32.46666663 , 61.66666667 , -32.46666663 
+  - Name: iona
+    Start: P2
+    Vertices: 61.67186 , -32.35825 , 61.67375 , -32.35731 , 61.67754 , -32.35729 , 61.67873 , -32.35668 , 61.68250 , -32.35670 , 61.68315 , -32.35639 , 61.68315 , -32.35514 , 61.68623 , -32.35358 , 61.68750 , -32.35356 , 61.68877 , -32.35295 , 61.69000 , -32.35293 , 61.69063 , -32.35264 , 61.69065 , -32.35012 , 61.69186 , -32.34950 , 61.69181 , -32.34762 , 61.68936 , -32.34637 , 61.68938 , -32.34512 , 61.68438 , -32.34262 , 61.68434 , -32.34202 , 61.68498 , -32.34170 , 61.68875 , -32.34168 , 61.68940 , -32.34135 , 61.68936 , -32.34077 , 61.69000 , -32.34043 , 61.69129 , -32.34045 , 61.69250 , -32.33985 , 61.69373 , -32.33983 , 61.69565 , -32.33887 , 61.69561 , -32.33829 , 61.69690 , -32.33762 , 61.69686 , -32.33702 , 61.69748 , -32.33668 , 61.69873 , -32.33668 , 61.70254 , -32.33483 , 61.70748 , -32.33481 , 61.70875 , -32.33418 , 61.71254 , -32.33423 , 61.71621 , -32.33229 , 61.72123 , -32.33231 , 61.72309 , -32.33325 , 61.72061 , -32.33452 , 61.72058 , -32.34260 , 61.71940 , -32.34327 , 61.71936 , -32.34387 , 61.71815 , -32.34450 , 61.71811 , -32.34512 , 61.71563 , -32.34639 , 61.71563 , -32.34764 , 61.71436 , -32.34827 , 61.71434 , -32.34950 , 61.71188 , -32.35077 , 61.71186 , -32.35202 , 61.71059 , -32.35264 , 61.71063 , -32.35323 , 61.70998 , -32.35356 , 61.70875 , -32.35358 , 61.70811 , -32.35391 , 61.70815 , -32.35450 , 61.70688 , -32.35512 , 61.70690 , -32.35577 , 61.70561 , -32.35637 , 61.70561 , -32.35762 , 61.70252 , -32.35918 , 61.70121 , -32.35920 , 61.70065 , -32.35954 , 61.70061 , -32.36012 , 61.69877 , -32.36108 , 61.69754 , -32.36104 , 61.69690 , -32.36137 , 61.69686 , -32.36202 , 61.69438 , -32.36325 , 61.69438 , -32.36450 , 61.69375 , -32.36483 , 61.69250 , -32.36479 , 61.69184 , -32.36452 , 61.69188 , -32.36389 , 61.69121 , -32.36358 , 61.68875 , -32.36356 , 61.68748 , -32.36293 , 61.68502 , -32.36293 , 61.68375 , -32.36231 , 61.67998 , -32.36231 , 61.67811 , -32.36137 , 61.67813 , -32.36012 , 61.67752 , -32.35983 , 61.67621 , -32.35983 , 61.67502 , -32.35916 , 61.67371 , -32.35918 , 61.67186 , -32.35825
+
+
+Surfaces:
+  - Name: S2
+    Exterior: curve1
+    Interior:
+      - Hole: Riona
+  - Name: S3
+    Exterior: iona
+
+Features:
+  - Name: LandArea
+    Foid: 1810:20:03
+    Prim: Surface
+    Attributes:
+      - Name: featureName
+        id: 1
+      - Name: name
+        parent: 1
+        Value: Iona
+    Geometry: S3
+
+  - Name: DataCoverage
+    Foid: 1810:608:68
+    Prim: Surface
+    Attributes:
+      - Name: maximumDisplayScale
+        Value: 22000
+      - Name: minimumDisplayScale
+        Value: 90000
+    Geometry: S2
+
+  - Name: NavigationalSystemOfMarks
+    Foid: 1810:4081:100
+    Prim: Surface
+    Attributes:
+      - Name: marksNavigationalSystemOf
+        Value: IALA A
+    Geometry: S2
+
+  - Name: DepthArea
+    Foid: 1810:1411:99
+    Prim: Surface
+    Attributes:
+      - Name: depthRangeMaximumValue
+        Value: 20
+      - Name: depthRangeMinimumValue
+        Value: 100
+    Geometry: S2 
+
+## Need a QualOfBath feature....
+  - Name: QualityOfBathymetricData
+    Foid: 1810:1411:100
+    Prim: Surface
+    Attributes:
+      - Name: categoryOfTemporalVariation
+        Value: Unassessed
+      - Name: dataAssessment
+        Value: Unassessed
+      - Name: featuresDetected
+        id: 1
+      - Name: significantFeaturesDetected
+        parent: 1
+        Value: false
+      - Name: leastDepthOfDetectedFeaturesMeasured
+        parent: 1
+        Value: false
+      - Name: surveyDateRange
+        id: 2
+      - Name: dateEnd
+        Value: 20210101
+        parent: 2
+      - Name: zoneOfConfidence
+        id: 3
+      - Name: categoryOfZoneOfConfidenceInData
+        Value: Zone of Confidence U
+        parent: 3
+      - Name: fullSeafloorCoverageAchieved
+        Value: false
+    Geometry: S2 

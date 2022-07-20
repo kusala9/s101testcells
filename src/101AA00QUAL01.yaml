@@ -1,0 +1,293 @@
+CellName: 101AA00QUAL01.000
+Comment: test cell for quality portrayal 1
+Edition: 1
+
+
+# Add two of each of the following point features, one with and one without displayUncertainties=true:
+
+# Sounding
+# UnderwaterAwashRock
+# Wreck
+# Obstruction
+# For the features which have displayUncertainties=true, associate an instance of SpatialQuality to the point.
+
+# The SpatialQuality should participate in a QualityOfBathymetricDataComposition
+# The SpatialQuality should contain two instances of spatialAccuracy
+# Each spatialAccuracy attribute should contain both horizontal and vertical uncertainties
+# Each value should be unique for a given date range (uncertainties should degrade)
+# SpatialQuality.spatialAccuracy.horizontalPositionUncertainty
+# SpatialQuality.spatialAccuracy.verticalUncertainty
+# Each spatialAccuracy attribute should have a non-overlapping fixedDateRange (dateStart/dateEnd)
+
+InformationTypes:
+  - Name: SpatialQuality
+    ID: SQ1
+    Attributes:
+      - Name: qualityOfHorizontalMeasurement
+        Value: Approximate
+      # Spatial Accuracy 1
+      - Name: spatialAccuracy
+        id: 1
+      - Name: horizontalPositionUncertainty
+        Value: 0.5
+        parent: 1
+      - Name: verticalUncertainty
+        Value: 0.25
+        parent: 1
+      - Name: fixedDateRange
+        id: 2
+        parent: 1
+      - Name: dateStart
+        Value: 20200101
+        parent: 2
+      - Name: dateEnd
+        Value: 20200601
+        parent: 2
+      # Spatial Accuracy 2
+      - Name: spatialAccuracy
+        id: 3
+      - Name: horizontalPositionUncertainty
+        Value: 0.9
+        parent: 3
+      - Name: verticalUncertainty
+        Value: 0.5
+        parent: 3
+      - Name: fixedDateRange
+        id: 4
+        parent: 3
+      - Name: dateStart
+        Value: 20200701
+        parent: 4
+      - Name: dateEnd
+        Value: 20201201
+        parent: 4
+
+Points:
+  - Name: P1
+    Location: 62.50000002,-32.6333333
+  - Name: P2
+    Location: 62.63419 , -32.53644
+
+  - Name: M1
+    Location: 62.58,-32.60
+    Association:
+      - To: SQ1
+        Name: SpatialAssociation
+        Role: defines
+
+  - Name: M2
+    Location: 62.585,-32.60
+    Association:
+      - To: SQ1
+        Name: SpatialAssociation
+        Role: defines
+
+  - Name: M3
+    Location: 62.59,-32.60
+    Association:
+      - To: SQ1
+        Name: SpatialAssociation
+        Role: defines
+
+  - Name: M21
+    Location: 62.58,-32.615
+  - Name: M22
+    Location: 62.585,-32.615
+  - Name: M23
+    Location: 62.59,-32.615
+
+
+Depths:
+  - Name: M24
+    Location: 62.595,-32.615
+    Z: 242
+    
+  - Name: M4
+    Location: 62.595,-32.60
+    Z: 241
+    Association:
+      - To: SQ1
+        Name: SpatialAssociation
+        Role: defines
+Curves:
+  - Name: curve1
+    Start: P1
+    Vertices:  62.50000002 , -32.6333333 , 62.50000002 , -32.46666663 , 62.66666669 , -32.46666663 , 62.66666669 , -32.6333333 , 62.50000002 , -32.6333333 
+  - Name: Island
+    Start: P2
+    Vertices: 62.63419 , -32.53644 , 62.63251 , -32.53726 , 62.63254 , -32.53769 , 62.62835 , -32.53979 , 62.62838 , -32.54019 , 62.62756 , -32.54063 , 62.62753 , -32.55102 , 62.62665 , -32.55142 , 62.62668 , -32.55185 , 62.62629 , -32.55208 , 62.62546 , -32.55206 , 62.62419 , -32.55272 , 62.62418 , -32.55312 , 62.62169 , -32.55437 , 62.62168 , -32.55520 , 62.62254 , -32.55562 , 62.62253 , -32.55644 , 62.62003 , -32.55770 , 62.62000 , -32.55810 , 62.61876 , -32.55873 , 62.61792 , -32.55874 , 62.61711 , -32.55915 , 62.61628 , -32.55916 , 62.61540 , -32.55956 , 62.61463 , -32.55958 , 62.61375 , -32.55999 , 62.61208 , -32.55998 , 62.61128 , -32.56040 , 62.60960 , -32.56038 , 62.60917 , -32.56060 , 62.60919 , -32.56104 , 62.60837 , -32.56144 , 62.60836 , -32.56309 , 62.60754 , -32.56354 , 62.60754 , -32.56437 , 62.60418 , -32.56604 , 62.60421 , -32.56644 , 62.60376 , -32.56665 , 62.60293 , -32.56666 , 62.60213 , -32.56708 , 62.60129 , -32.56705 , 62.59793 , -32.56874 , 62.58796 , -32.56873 , 62.58668 , -32.56810 , 62.58668 , -32.56769 , 62.58587 , -32.56730 , 62.58586 , -32.56604 , 62.58460 , -32.56541 , 62.58297 , -32.56541 , 62.58165 , -32.56479 , 62.58169 , -32.56438 , 62.58089 , -32.56394 , 62.58086 , -32.56354 , 62.58001 , -32.56312 , 62.58003 , -32.56269 , 62.57958 , -32.56248 , 62.57881 , -32.56249 , 62.57793 , -32.56290 , 62.57712 , -32.56248 , 62.57540 , -32.56248 , 62.57460 , -32.56209 , 62.57376 , -32.56208 , 62.57210 , -32.56123 , 62.56960 , -32.56124 , 62.56879 , -32.56083 , 62.56796 , -32.56084 , 62.56589 , -32.55976 , 62.56669 , -32.55935 , 62.56668 , -32.55809 , 62.56754 , -32.55769 , 62.56750 , -32.55685 , 62.56669 , -32.55644 , 62.56668 , -32.55519 , 62.56588 , -32.55477 , 62.56586 , -32.55352 , 62.56339 , -32.55226 , 62.56338 , -32.55022 , 62.56125 , -32.54913 , 62.56043 , -32.54958 , 62.55542 , -32.54956 , 62.55088 , -32.54730 , 62.55086 , -32.54687 , 62.54919 , -32.54604 , 62.54919 , -32.54520 , 62.54839 , -32.54479 , 62.54836 , -32.54437 , 62.54710 , -32.54373 , 62.54626 , -32.54372 , 62.54419 , -32.54270 , 62.54417 , -32.54227 , 62.54043 , -32.54040 , 62.53960 , -32.54041 , 62.53546 , -32.53833 , 62.53458 , -32.53874 , 62.53375 , -32.53873 , 62.53254 , -32.53810 , 62.53251 , -32.53770 , 62.53211 , -32.53749 , 62.53128 , -32.53748 , 62.53001 , -32.53685 , 62.53004 , -32.53645 , 62.53083 , -32.53602 , 62.52503 , -32.53312 , 62.52500 , -32.53185 , 62.52542 , -32.53166 , 62.52628 , -32.53166 , 62.52708 , -32.53124 , 62.53126 , -32.53124 , 62.53171 , -32.53102 , 62.53168 , -32.53062 , 62.53250 , -32.53019 , 62.53251 , -32.52979 , 62.53419 , -32.52894 , 62.53421 , -32.52810 , 62.53501 , -32.52770 , 62.53504 , -32.52727 , 62.53586 , -32.52685 , 62.53583 , -32.52642 , 62.53751 , -32.52560 , 62.53754 , -32.52517 , 62.53797 , -32.52499 , 62.53876 , -32.52498 , 62.54125 , -32.52374 , 62.54213 , -32.52373 , 62.54296 , -32.52333 , 62.54458 , -32.52333 , 62.54501 , -32.52310 , 62.54504 , -32.52269 , 62.54710 , -32.52167 , 62.54794 , -32.52166 , 62.55006 , -32.52062 , 62.55001 , -32.52019 , 62.55085 , -32.51977 , 62.55088 , -32.51935 , 62.55169 , -32.51894 , 62.55174 , -32.51685 , 62.55336 , -32.51604 , 62.55339 , -32.51560 , 62.55713 , -32.51374 , 62.55797 , -32.51373 , 62.56042 , -32.51247 , 62.56131 , -32.51249 , 62.56211 , -32.51208 , 62.56296 , -32.51206 , 62.56876 , -32.50913 , 62.57128 , -32.50916 , 62.57208 , -32.50874 , 62.57296 , -32.50913 , 62.57379 , -32.50916 , 62.57460 , -32.50958 , 62.57543 , -32.50956 , 62.57796 , -32.51081 , 62.57921 , -32.51019 , 62.57919 , -32.50979 , 62.58006 , -32.50938 , 62.58001 , -32.50852 , 62.58044 , -32.50833 , 62.58126 , -32.50831 , 62.58210 , -32.50791 , 62.58378 , -32.50791 , 62.58415 , -32.50769 , 62.58418 , -32.50730 , 62.58625 , -32.50623 , 62.58960 , -32.50624 , 62.59000 , -32.50645 , 62.59003 , -32.50685 , 62.59089 , -32.50730 , 62.59086 , -32.50769 , 62.59126 , -32.50790 , 62.59378 , -32.50790 , 62.59457 , -32.50831 , 62.59710 , -32.50831 , 62.59790 , -32.50873 , 62.59879 , -32.50874 , 62.59921 , -32.50892 , 62.59922 , -32.50935 , 62.60003 , -32.50977 , 62.60000 , -32.51020 , 62.60126 , -32.51083 , 62.60210 , -32.51081 , 62.60256 , -32.51102 , 62.60253 , -32.51145 , 62.60293 , -32.51166 , 62.60712 , -32.51166 , 62.60753 , -32.51184 , 62.60754 , -32.51227 , 62.60835 , -32.51269 , 62.60835 , -32.51355 , 62.60881 , -32.51373 , 62.60958 , -32.51374 , 62.61004 , -32.51395 , 62.61001 , -32.51435 , 62.61088 , -32.51477 , 62.61089 , -32.51520 , 62.61210 , -32.51583 , 62.61964 , -32.51581 , 62.62296 , -32.51749 , 62.62376 , -32.51748 , 62.62501 , -32.51810 , 62.62499 , -32.51854 , 62.62585 , -32.51895 , 62.62588 , -32.51935 , 62.62754 , -32.52019 , 62.62750 , -32.52062 , 62.62836 , -32.52104 , 62.62832 , -32.52229 , 62.62918 , -32.52267 , 62.62921 , -32.52310 , 62.63001 , -32.52352 , 62.63003 , -32.52479 , 62.63087 , -32.52520 , 62.63085 , -32.52562 , 62.62878 , -32.52666 , 62.62794 , -32.52665 , 62.62713 , -32.52708 , 62.62625 , -32.52706 , 62.62461 , -32.52788 , 62.61797 , -32.52791 , 62.61710 , -32.52831 , 62.61543 , -32.52831 , 62.61500 , -32.52854 , 62.61500 , -32.52979 , 62.61712 , -32.53080 , 62.62293 , -32.53081 , 62.62374 , -32.53123 , 62.62792 , -32.53124 , 62.62878 , -32.53166 , 62.63212 , -32.53165 , 62.63293 , -32.53206 , 62.63378 , -32.53208 , 62.63418 , -32.53229 , 62.63419 , -32.53269 , 62.63500 , -32.53310 , 62.63500 , -32.53519 , 62.63419 , -32.53560 , 62.63421 , -32.53602 , 62.63419 , -32.53644
+    
+Surfaces:
+  - Name: S2
+    Exterior: curve1
+    Interior:
+      - Hole: RIsland
+  - Name: S3
+    Exterior: Island
+
+Features:
+  - Name: UnderwaterAwashRock
+    Foid: 1810:10:01
+    Prim: Point
+    Attributes:
+      - Name: displayUncertainties
+        Value: true
+      - Name: waterLevelEffect
+        Value: Always Dry
+      - Name: valueOfSounding
+        Value: 17.1
+      - Name: featureName
+        id: 1
+      - Name: name
+        parent: 1
+        Value: M1
+    Geometry: M1
+  - Name: Obstruction
+    Foid: 1810:10:02
+    Prim: Point
+    Attributes:
+      - Name: displayUncertainties
+        Value: true
+      - Name: featureName
+        id: 1
+      - Name: name
+        parent: 1
+        Value: M2
+    Geometry: M2
+  - Name: Wreck
+    Foid: 1810:10:03
+    Prim: Point
+    Attributes:
+      - Name: displayUncertainties
+        Value: true
+      - Name: featureName
+        id: 1
+      - Name: name
+        parent: 1
+        Value: M3
+    Geometry: M3
+
+  - Name: Sounding
+    Foid: 1810:10:04
+    Prim: Point
+    Attributes:
+      - Name: displayUncertainties
+        Value: true
+    Geometry: M4
+
+# Second set
+  - Name: UnderwaterAwashRock
+    Foid: 1810:10:05
+    Prim: Point
+    Attributes:
+      - Name: waterLevelEffect
+        Value: Always Dry
+      - Name: valueOfSounding
+        Value: 17.2
+      - Name: featureName
+        id: 1
+      - Name: name
+        parent: 1
+        Value: M21
+    Geometry: M21
+  - Name: Obstruction
+    Foid: 1810:10:06
+    Prim: Point
+    Attributes:
+      - Name: featureName
+        id: 1
+      - Name: name
+        parent: 1
+        Value: M22
+    Geometry: M22
+  - Name: Wreck
+    Foid: 1810:10:07
+    Prim: Point
+    Attributes:
+      - Name: featureName
+        id: 1
+      - Name: name
+        parent: 1
+        Value: M23
+    Geometry: M23
+
+  - Name: Sounding
+    Foid: 1810:10:08
+    Prim: Point
+    Geometry: M24
+
+
+
+  - Name: LandArea
+    Foid: 1810:20:02
+    Prim: Surface
+    Attributes:
+      - Name: featureName
+        id: 1
+      - Name: name
+        parent: 1
+        Value: Mary Island
+    Geometry: S3
+
+  - Name: DataCoverage
+    Foid: 1810:608:68
+    Prim: Surface
+    Attributes:
+      - Name: maximumDisplayScale
+        Value: 22000
+      - Name: minimumDisplayScale
+        Value: 90000
+    Geometry: S2
+
+  - Name: NavigationalSystemOfMarks
+    Foid: 1810:4081:100
+    Prim: Surface
+    Attributes:
+      - Name: marksNavigationalSystemOf
+        Value: IALA A
+    Geometry: S2
+
+  - Name: DepthArea
+    Foid: 1810:1411:99
+    Prim: Surface
+    Attributes:
+      - Name: depthRangeMaximumValue
+        Value: 20
+      - Name: depthRangeMinimumValue
+        Value: 100
+    Geometry: S2 
+
+## Need a QualOfBath feature....
+  - Name: QualityOfBathymetricData
+    Foid: 1810:1411:100
+    Prim: Surface
+    Attributes:
+      - Name: categoryOfTemporalVariation
+        Value: Unassessed
+      - Name: dataAssessment
+        Value: Unassessed
+      - Name: featuresDetected
+        id: 1
+      - Name: significantFeaturesDetected
+        parent: 1
+        Value: false
+      - Name: leastDepthOfDetectedFeaturesMeasured
+        parent: 1
+        Value: false
+      - Name: surveyDateRange
+        id: 2
+      - Name: dateEnd
+        Value: 20210101
+        parent: 2
+      - Name: zoneOfConfidence
+        id: 3
+      - Name: categoryOfZoneOfConfidenceInData
+        Value: Zone of Confidence U
+        parent: 3
+      - Name: fullSeafloorCoverageAchieved
+        Value: false
+    Geometry: S2 
+    Association:
+      - To: SQ1
+        Name: QualityOfBathymetricDataComposition
+        Role: defines

@@ -3,7 +3,7 @@
 #
 CAT=S-101.xml
 CC=8cc
-CCFLAGS=-c $(CAT)
+CCFLAGS=-v y -c $(CAT)
 SRC=src
 OBJ=data
 CELLS=cells/
