@@ -1,7 +1,7 @@
 #
 # Makefile for S-101 test datasets.
 #
-CAT=S-101.xml
+CAT=S-101_1.0.2_20220524.xml
 CC=8cc
 CCFLAGS=-v y -c $(CAT)
 SRC=src

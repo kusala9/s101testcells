@@ -2,11 +2,50 @@ CellName: 101AA00QUAL02.000
 Comment: test cell for quality portrayal 2
 Edition: 1
 
+#Dataset 2 - model uncertainties using only QoBD
+#As above, but:
+#
+#Don't use SpatialQuality
+#Don't use QualityOfBathymetricDataComposition
+#Two date ranges should be on instances of zoneOfConfidence
+#zoneOfConfidence.fixedDateRange_
+#Uncertainties should be on instances of zoneOfConfidence
+#zoneOfConfidence.horizontalPositionUncertainty
+#zoneOfConfidence.verticalUncertainty
+#Note: Adding an aggregation between each QoBD and the features to which it pertains would eliminate the need for spatial evaluation in this encoding method.
+
 Points:
   - Name: P1
     Location: 61.66666667,-32.46666663
   - Name: P2
     Location: 61.67186 , -32.35825
+
+  - Name: M1
+    Location: 61.74,-32.35
+
+  - Name: M2
+    Location: 61.76,-32.35
+
+  - Name: M3
+    Location: 61.78,-32.35
+
+
+  - Name: M21
+    Location: 61.70,-32.40
+  - Name: M22
+    Location: 61.72,-32.40
+  - Name: M23
+    Location: 61.74,-32.40
+
+
+Depths:
+  - Name: M24
+    Location: 62.64,-32.615
+    Z: 242
+
+  - Name: M4
+    Location: 62.64,-32.60
+    Z: 241
 
 Curves:
   - Name: curve1
@@ -22,8 +61,10 @@ Surfaces:
     Exterior: curve1
     Interior:
       - Hole: Riona
+
   - Name: S3
     Exterior: iona
+
 
 Features:
   - Name: LandArea
@@ -36,6 +77,126 @@ Features:
         parent: 1
         Value: Iona
     Geometry: S3
+
+
+
+Features:
+  - Name: UnderwaterAwashRock
+    Foid: 1810:10:01
+    Prim: Point
+    Attributes:
+      - Name: displayUncertainties
+        Value: true
+      - Name: waterLevelEffect
+        Value: Always Dry
+      - Name: valueOfSounding
+        Value: 17.1
+      - Name: featureName
+        id: 1
+      - Name: name
+        parent: 1
+        Value: M1
+    Geometry: M1
+  - Name: Obstruction
+    Foid: 1810:10:02
+    Prim: Point
+    Attributes:
+      - Name: waterLevelEffect
+        Value: Always Under Water/Submerged
+      - Name: displayUncertainties
+        Value: true
+      - Name: featureName
+        id: 1
+      - Name: name
+        parent: 1
+        Value: M2
+    Geometry: M2
+  - Name: Wreck
+    Foid: 1810:10:03
+    Prim: Point
+    Attributes:
+      - Name: waterLevelEffect
+        Value: Always Under Water/Submerged
+      - Name: displayUncertainties
+        Value: true
+      - Name: featureName
+        id: 1
+      - Name: name
+        parent: 1
+        Value: M3
+    Geometry: M3
+
+  - Name: Sounding
+    Foid: 1810:10:04
+    Prim: Point
+    Attributes:
+      - Name: displayUncertainties
+        Value: true
+    Geometry: M4
+
+# Second set
+  - Name: UnderwaterAwashRock
+    Foid: 1810:10:05
+    Prim: Point
+    Attributes:
+      - Name: waterLevelEffect
+        Value: Always Dry
+      - Name: valueOfSounding
+        Value: 17.2
+      - Name: featureName
+        id: 1
+      - Name: name
+        parent: 1
+        Value: M21
+    Geometry: M21
+  - Name: Obstruction
+    Foid: 1810:10:06
+    Prim: Point
+    Attributes:
+      - Name: waterLevelEffect
+        Value: Always Under Water/Submerged
+      - Name: featureName
+        id: 1
+      - Name: name
+        parent: 1
+        Value: M22
+    Geometry: M22
+
+  - Name: Wreck
+    Foid: 1810:10:07
+    Prim: Point
+    Attributes:
+      - Name: waterLevelEffect
+        Value: Always Under Water/Submerged
+      - Name: featureName
+        id: 1
+      - Name: name
+        parent: 1
+        Value: M23
+    Geometry: M23
+
+  - Name: Sounding
+    Foid: 1810:10:08
+    Prim: Point
+    Geometry: M24
+
+
+
+  - Name: LandArea
+    Foid: 1810:20:02
+    Prim: Surface
+    Attributes:
+      - Name: featureName
+        id: 1
+      - Name: name
+        parent: 1
+        Value: Quality Test 2
+    Geometry: S3
+
+
+
+
+
 
   - Name: DataCoverage
     Foid: 1810:608:68
@@ -87,11 +248,65 @@ Features:
       - Name: dateEnd
         Value: 20210101
         parent: 2
-      - Name: zoneOfConfidence
-        id: 3
-      - Name: categoryOfZoneOfConfidenceInData
-        Value: Zone of Confidence U
-        parent: 3
       - Name: fullSeafloorCoverageAchieved
         Value: false
-    Geometry: S2 
+
+      - Name: zoneOfConfidence
+        id: 7
+      - Name: categoryOfZoneOfConfidenceInData
+        Value: Zone of Confidence U
+        parent: 7
+      - Name: fixedDateRange
+        id: 5
+        parent: 7
+      - Name: dateStart
+        parent: 5
+        Value: 20210101
+      - Name: dateEnd
+        parent: 5
+        Value: 20211231
+# uncertainty values.
+      - Name: horizontalPositionUncertainty
+        id: 15
+        parent: 7
+      - Name: uncertaintyFixed
+        parent: 15
+        Value: 100
+      - Name: verticalUncertainty
+        id: 16
+        parent: 10
+      - Name: uncertaintyFixed
+        parent: 16
+        Value: 10
+
+# second set....
+      - Name: zoneOfConfidence
+        id: 4
+      - Name: categoryOfZoneOfConfidenceInData
+        Value: Zone of Confidence U
+        parent: 4
+      - Name: fixedDateRange
+        id: 6
+        parent: 4
+      - Name: dateStart
+        parent: 6
+        Value: 20220101
+      - Name: dateEnd
+        parent: 6
+        Value: 20221231
+ 
+ # uncertinty values.
+      - Name: horizontalPositionUncertainty
+        id: 15
+        parent: 4
+      - Name: uncertaintyFixed
+        parent: 15
+        Value: 100
+      - Name: verticalUncertainty
+        id: 16
+        parent: 10
+      - Name: uncertaintyFixed
+        parent: 16
+        Value: 10
+
+    Geometry: S2

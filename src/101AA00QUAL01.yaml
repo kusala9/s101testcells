@@ -23,44 +23,55 @@ InformationTypes:
   - Name: SpatialQuality
     ID: SQ1
     Attributes:
-      - Name: qualityOfHorizontalMeasurement
-        Value: Approximate
-      # Spatial Accuracy 1
+#      - Name: qualityOfHorizontalMeasurement
+#        Value: Approximate
       - Name: spatialAccuracy
         id: 1
       - Name: horizontalPositionUncertainty
-        Value: 0.5
+        id: 5
         parent: 1
+      - Name: uncertaintyFixed
+        parent: 5
+        Value: 50
       - Name: verticalUncertainty
-        Value: 0.25
+        id: 6
         parent: 1
+      - Name: uncertaintyFixed
+        parent: 6
+        Value: 5
       - Name: fixedDateRange
         id: 2
         parent: 1
       - Name: dateStart
-        Value: 20200101
         parent: 2
+        Value: 20210101
       - Name: dateEnd
-        Value: 20200601
         parent: 2
+        Value: 20211231
       # Spatial Accuracy 2
       - Name: spatialAccuracy
-        id: 3
+        id: 10
       - Name: horizontalPositionUncertainty
-        Value: 0.9
-        parent: 3
+        id: 15
+        parent: 10
+      - Name: uncertaintyFixed
+        parent: 15
+        Value: 100
       - Name: verticalUncertainty
-        Value: 0.5
-        parent: 3
+        id: 16
+        parent: 10
+      - Name: uncertaintyFixed
+        parent: 16
+        Value: 10
       - Name: fixedDateRange
-        id: 4
-        parent: 3
+        id: 20
+        parent: 10
       - Name: dateStart
-        Value: 20200701
-        parent: 4
+        parent: 20
+        Value: 20220101
       - Name: dateEnd
-        Value: 20201201
-        parent: 4
+        parent: 20
+        Value: 20221231
 
 Points:
   - Name: P1
@@ -76,14 +87,14 @@ Points:
         Role: defines
 
   - Name: M2
-    Location: 62.585,-32.60
+    Location: 62.60,-32.60
     Association:
       - To: SQ1
         Name: SpatialAssociation
         Role: defines
 
   - Name: M3
-    Location: 62.59,-32.60
+    Location: 62.62,-32.60
     Association:
       - To: SQ1
         Name: SpatialAssociation
@@ -92,18 +103,18 @@ Points:
   - Name: M21
     Location: 62.58,-32.615
   - Name: M22
-    Location: 62.585,-32.615
+    Location: 62.60,-32.615
   - Name: M23
-    Location: 62.59,-32.615
+    Location: 62.62,-32.615
 
 
 Depths:
   - Name: M24
-    Location: 62.595,-32.615
+    Location: 62.64,-32.615
     Z: 242
-    
+
   - Name: M4
-    Location: 62.595,-32.60
+    Location: 62.64,-32.60
     Z: 241
     Association:
       - To: SQ1
@@ -226,7 +237,7 @@ Features:
         id: 1
       - Name: name
         parent: 1
-        Value: Mary Island
+        Value: Iona
     Geometry: S3
 
   - Name: DataCoverage
@@ -252,9 +263,9 @@ Features:
     Prim: Surface
     Attributes:
       - Name: depthRangeMaximumValue
-        Value: 20
-      - Name: depthRangeMinimumValue
         Value: 100
+      - Name: depthRangeMinimumValue
+        Value: 20
     Geometry: S2 
 
 ## Need a QualOfBath feature....
