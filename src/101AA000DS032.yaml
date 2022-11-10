@@ -5,6 +5,9 @@ Edition: 1
 Points:
   - Name: P1
     Location: 62.50000002,-32.13333329
+  - Name: P2
+    Location: 62.55,-32.05
+
 
 Curves:
   - Name: curve1
@@ -33,6 +36,11 @@ Features:
       - Name: marksNavigationalSystemOf
         Value: IALA A
     Geometry: S2
+
+  - Name: LandArea
+    Foid: 1810:1411:100
+    Prim: Point
+    Geometry: P2 
 
   - Name: DepthArea
     Foid: 1810:1411:99
