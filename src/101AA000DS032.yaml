@@ -6,7 +6,7 @@ Points:
   - Name: P1
     Location: 62.50000002,-32.13333329
   - Name: P2
-    Location: 62.55,-32.05
+    Location: 62.55,-32.05  # The position of null island?...
 
 
 Curves:
@@ -37,10 +37,22 @@ Features:
         Value: IALA A
     Geometry: S2
 
-# New Land Area Point (no name)
+# New Land Area Point (changed name to Null Island)
   - Name: LandArea
     Foid: 1810:1411:100
     Prim: Point
+    Attributes:
+      - Name: featureName
+        id: 1
+      - Name: language
+        Value: eng
+        parent: 1
+      - Name: name
+        Value: Null Island
+        parent: 1
+      - Name: displayName
+        Value: 1
+        parent: 1
     Geometry: P2 
 
   - Name: DepthArea
