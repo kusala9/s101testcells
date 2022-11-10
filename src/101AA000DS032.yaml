@@ -37,6 +37,7 @@ Features:
         Value: IALA A
     Geometry: S2
 
+# New Land Area Point (no name)
   - Name: LandArea
     Foid: 1810:1411:100
     Prim: Point
