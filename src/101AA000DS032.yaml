@@ -55,6 +55,24 @@ Features:
         parent: 1
     Geometry: P2 
 
+  - Name: BeaconLateral
+    Foid: 1810:1804:1
+    Prim: Point
+    Attributes:
+      - Name: beaconShape
+        Value: 1
+      - Name: categoryOfLateralMark
+        Value: Preferred Channel to Starboard Lateral Mark
+      - Name: colour
+        Value: Red
+      - Name: colour
+        Value: Green
+      - Name: colour
+        Value: Red
+      - Name: colourPattern
+        Value: Horizontal Stripes
+    Geometry: P2
+
   - Name: DepthArea
     Foid: 1810:1411:99
     Prim: Surface
